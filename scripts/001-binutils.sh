@@ -2,11 +2,14 @@
 # 001-binutils.sh by Francisco Javier Trujillo Mata (fjtrujy@gmail.com)
 
 ## Download the source code.
+## Download the source code.
+REPO_URL="https://gitlab.com/ps2max/toolchain/binutils.git"
+REPO_FOLDER="binutils"
 BRANCH_NAME="ee-toolchain-gcc9"
-if test ! -d "binutils/.git"; then
-	git clone -b $BRANCH_NAME https://gitlab.com/ps2max/toolchain/binutils.git && cd binutils || exit 1
+if test ! -d "$REPO_FOLDER"; then
+	git clone -b $BRANCH_NAME $REPO_URL && cd $REPO_FOLDER || exit 1
 else
-	cd binutils && git fetch origin && git reset --hard origin/${BRANCH_NAME} || exit 1
+	cd $REPO_FOLDER && git fetch origin && git reset --hard origin/${BRANCH_NAME} || exit 1
 fi
 
 TARGET_ALIAS="ee" 

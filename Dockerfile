@@ -6,7 +6,7 @@ ENV PATH   $PATH:${PS2DEV}/ee/bin
 
 COPY . /src
 
-RUN apk add build-base git bash patch wget texinfo
+RUN apk add build-base bash gcc git make flex bison texinfo gmp-dev
 RUN cd /src && ./toolchain.sh
 
 # Second stage of Dockerfile

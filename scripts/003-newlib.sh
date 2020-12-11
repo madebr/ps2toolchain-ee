@@ -6,7 +6,7 @@ REPO_URL="https://gitlab.com/ps2max/toolchain/newlib.git"
 REPO_FOLDER="newlib"
 BRANCH_NAME="ee-toolchain-gcc9"
 if test ! -d "$REPO_FOLDER"; then
-	git clone -b $BRANCH_NAME $REPO_URL && cd $REPO_FOLDER || exit 1
+	git clone --depth 1 -b $BRANCH_NAME $REPO_URL && cd $REPO_FOLDER || exit 1
 else
 	cd $REPO_FOLDER && git fetch origin && git reset --hard origin/${BRANCH_NAME} || exit 1
 fi

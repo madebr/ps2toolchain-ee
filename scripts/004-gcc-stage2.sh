@@ -6,7 +6,7 @@ REPO_URL="https://gitlab.com/ps2max/toolchain/gcc.git"
 REPO_FOLDER="gcc"
 BRANCH_NAME="ee-toolchain-gcc9"
 if test ! -d "$REPO_FOLDER"; then
-	git clone -b $BRANCH_NAME $REPO_URL && cd $REPO_FOLDER || exit 1
+	git clone --depth 1 -b $BRANCH_NAME $REPO_URL && cd $REPO_FOLDER || exit 1
 else
 	cd $REPO_FOLDER && git fetch origin && git reset --hard origin/${BRANCH_NAME} || exit 1
 fi
@@ -29,7 +29,8 @@ PROC_NR=$(getconf _NPROCESSORS_ONLN)
 mkdir build-$TARGET-stage2 && cd build-$TARGET-stage2 || { exit 1; }
 
 ## Configure the build.
- --quiet \
+../configure \
+  --quiet \
   --prefix="$PS2DEV/$TARGET_ALIAS" \
   --target="$TARGET" \
   --enable-languages="c,c++" \

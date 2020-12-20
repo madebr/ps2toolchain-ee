@@ -3,8 +3,8 @@
 
 ## Download the source code.
 ## Download the source code.
-REPO_URL="https://gitlab.com/ps2max/toolchain/binutils.git"
-REPO_FOLDER="binutils"
+REPO_URL="https://github.com/fjtrujy/binutils-gdb.git"
+REPO_FOLDER="binutils-gdb"
 BRANCH_NAME="ee-toolchain-gcc10-stable"
 if test ! -d "$REPO_FOLDER"; then
 	git clone --depth 1 -b $BRANCH_NAME $REPO_URL && cd $REPO_FOLDER || exit 1
